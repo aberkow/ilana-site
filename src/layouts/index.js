@@ -1,35 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import Link, { navigateTo } from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-// import './index.css'
+import { HeaderWrapper, SiteName, SiteWrapper } from '../utils/styles';
 
 const Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
+      background: 'white',
       marginBottom: '1.45rem',
     }}
   >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Rabbi Ilana Garber
-        </Link>
-      </h1>
+    <HeaderWrapper>
+      <SiteName 
+        onClick={ () => navigateTo('/') }>
+          Rabbi Ilana Garber 
+      </SiteName>
       <ul style={{
         listStyleType: 'none',
         color: 'white',
@@ -43,21 +30,22 @@ const Header = () => (
               Home
             </Link>
         </li>
-        < li style = {
+        < li style={
           {
             display: 'inline-block'
           }
         } >
-          <Link to="/about" style={{
+          <Link to="/writings" style={{
             textDecoration: 'none',
-            margin: '0 20px'
+            marginLeft: '20px'
           }}>
-            About
+            Writings
           </Link>
         </li>
         < li style = {
           {
-            display: 'inline-block'
+            display: 'inline-block',
+            marginLeft: '20px'
           }
         } >
           <Link to="/contact" 
@@ -68,7 +56,7 @@ const Header = () => (
           </Link>
         </li>
       </ul>
-    </div>
+    </HeaderWrapper>
   </div>
 )
 
@@ -78,20 +66,14 @@ const TemplateWrapper = ({ children }) => (
       title="Rabbi Ilana Garber"
       meta={[
         { name: 'description', content: 'Rabbi Ilana Garber' },
-        { name: 'keywords', content: 'Ilana Garber, Rabbi, author, teacher, educator, pastoral counseling, lifecycle events, fragile x syndrome' },
+        { name: 'keywords', content: 'Ilana Garber, Rabbi, author, teacher, educator, pastoral counseling, lifecycle events, fragile x syndrome',
+          name: 'robots', content: 'index, follow' },
       ]}
     />
     <Header />
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '0px 1.0875rem 1.45rem',
-          paddingTop: 0,
-        }}
-      >
+      <SiteWrapper className="site-wrapper">
         {children()}
-      </div>
+      </SiteWrapper>
   </div>
 );
 
@@ -100,3 +82,16 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+//   < li style = {
+//           {
+//   display: 'inline-block'
+// }
+//         } >
+//   <Link to="/about" style={{
+//     textDecoration: 'none',
+//     margin: '0 20px'
+//   }}>
+//     About
+//           </Link>
+//         </li >
