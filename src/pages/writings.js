@@ -47,7 +47,7 @@ const Writings = () =>
     <h2>Others</h2>
     <ul>
       <li>
-        <a href="https://rudermanfoundation.org/he/will-love-son/">The Ruderman Foundation - Will YOu Love My Son?</a>
+        <a href="https://rudermanfoundation.org/he/will-love-son/">The Ruderman Foundation - Will You Love My Son?</a>
       </li>
       <li>
         <a href="https://matankids.org/eating-with-intention-parashat-shemini/">Matan - Eating with Intention/Parashat Shemini</a>
